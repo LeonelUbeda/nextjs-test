@@ -1,4 +1,4 @@
-import {getAnime} from '../../app/api/animes'
+import {getAnime, getAnimes} from '../../app/api/animes'
 
 function AnimeDetail({anime}){
     return (
@@ -10,7 +10,8 @@ function AnimeDetail({anime}){
 }
 
 export async function getStaticProps(context){
-    const {uid} = context.query
+    console.log(context)
+    const {uid} = context.params
     const anime = await getAnime(uid)
     console.log(anime)
     return {
@@ -20,6 +21,17 @@ export async function getStaticProps(context){
     }
 }
 
+
+export async function getStaticPaths() {
+    const animes = await getAnimes()
+    console.log(animes)
+    const paths = animes.map(anime => ({params: { uid: anime.uid }}))
+    console.log(paths)
+    return {
+        paths,
+        fallback: false
+    }
+}
 
 export default AnimeDetail
 
