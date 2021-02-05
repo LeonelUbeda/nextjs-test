@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import Link from 'next/link'
 const AnimeImage = styled.img`
     width: 100%;
     max-width: 270px;
@@ -20,16 +20,17 @@ const AnimeCardContainer = styled.div`
     flex-direction: column;
 `
 
-const AnimeCard = ({img, title, link}) => {
+const AnimeCard = ({img, title, uid}) => {
     return (
         <AnimeCardContainer>
-            <a href={link}>
+            <h1>Hey <Link href="/contact">clic aqui</Link></h1>
+            <Link href='/animes/[uid]' as={`/animes/${uid}`}>
                 <AnimeImage src={img}/>
-            </a>
+            </Link>
             <AnimeHeadline>
-                <a href={link}>
+                <Link  href='/animes/[uid]' as={`/animes/${uid}`}>
                     <h3>{title}</h3>
-                </a>
+                </Link>
             </AnimeHeadline>
         </AnimeCardContainer>
     )

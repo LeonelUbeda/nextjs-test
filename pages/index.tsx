@@ -1,4 +1,4 @@
-import Head from 'next/head'
+
 import styles from '../styles/Home.module.css'
 import React, {useEffect, useState} from 'react'
 import {getAnimes} from '../app/api/animes'
@@ -12,9 +12,7 @@ import LastestAnime from '../app/components/modules/LastestAnime'
 export default function Home({lastestAnimes}) {
   return (
     <>
-      <Header />
       <LastestAnime animes={lastestAnimes}/>
-      <h1>Hey <Link href="/contact">clic aqui</Link></h1>
     </>
   )
 }
