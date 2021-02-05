@@ -9,7 +9,7 @@ function AnimeDetail({anime}){
     )
 }
 
-export async function getServerSideProps(context){
+export async function getStaticProps(context){
     const {uid} = context.query
     const anime = await getAnime(uid)
     console.log(anime)
