@@ -1,4 +1,4 @@
-import {getAnime, getAnimes} from '../../app/api/animes'
+import { getCategories } from '../../app/api/api'
 
 function AnimeDetail({anime}){
     return (
@@ -12,7 +12,7 @@ function AnimeDetail({anime}){
 export async function getStaticProps(context){
     console.log(context)
     const {uid} = context.params
-    const anime = await getAnime(uid)
+    const anime = await getCategories(uid)
     console.log(anime)
     return {
         props: {
