@@ -22,16 +22,16 @@ export async function getStaticProps(context){
 }
 
 
-export async function getStaticPaths() {
-    const animes = await getAnimes()
-    console.log(animes)
-    const paths = animes.map(anime => ({params: { uid: anime.uid }}))
-    console.log(paths)
-    return {
-        paths,
-        fallback: false
-    }
-}
+// export async function getStaticPaths() {
+//     const animes = await getAnimes()
+//     console.log(animes)
+//     const paths = animes.map(anime => ({params: { uid: anime.uid }}))
+//     console.log(paths)
+//     return {
+//         paths,
+//         fallback: false
+//     }
+// }
 
 export default AnimeDetail
 

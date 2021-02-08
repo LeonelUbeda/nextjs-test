@@ -1,5 +1,5 @@
 import Document, {Html, Head, Main, NextScript} from 'next/document'
-import Header from '../app/components/modules/Header'
+
 import { ServerStyleSheet } from 'styled-components';
 export default class CustomDocument extends Document{
     static async getInitialProps(ctx) {
@@ -33,8 +33,7 @@ export default class CustomDocument extends Document{
                 <Head>
                     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
                 </Head>
-                <body>
-                    <Header />
+                <body style={{backgroundColor: '#f8f8f6'}}>
                     <Main></Main>
                 </body>
                 <NextScript />
