@@ -8,22 +8,22 @@ const sections = [
     },
     {
         name: 'Noticias',
-        url: '/section/Noticias',
+        url: '/sections/Noticias',
     },
     {
         name: 'Programacion',
-        url: '/section/Programacion',
+        url: '/sections/Programacion',
     }
 ]
 
 
 const Header = ({}) => {
     return (
-        <div className="text-white px-2" style={{backgroundColor: '#009DDC'}}>
+        <div className="text-white px-2 md:px-5" style={{backgroundColor: '#009DDC'}}>
             <div className="h-20 container mx-auto max-w-6xl flex items-center">
                 <ul className="flex">
                     {sections.map(e => (    
-                        <li className="mr-2" key={e.name}>
+                        <li className="mr-3 font-bold" key={e.name}>
                             <Link href={e.url}>
                                 <a>
                                     <h6>{e.name}</h6>
@@ -31,7 +31,6 @@ const Header = ({}) => {
                             </Link>
                         </li>
                     ))}
-                    
                     {/* {categories.map(category => {
                         return (
                             <li className="mr-2">
