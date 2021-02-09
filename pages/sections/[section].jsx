@@ -20,7 +20,7 @@ export async function getStaticProps(context){
 
 export async function getStaticPaths() {
     const sections = await getSections()
-    console.log(sections)
+    // console.log(sections)
     const paths = sections.map(section => ({params: { section: section.name } }))
     return {
         paths,

@@ -22,7 +22,7 @@ export const getPostBySlug = async (slug) => {
                 title,
                 slug,
                 content{
-                    html
+                    markdown
                 },
                 author {
                     name
