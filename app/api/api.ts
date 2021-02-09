@@ -37,6 +37,28 @@ export const getPostBySlug = async (slug) => {
     return post
 }
 
+export const getPosts = async () => {
+    const {posts} = await graphcms.request(`
+        {
+            posts{
+                title,
+                slug,
+                content{
+                    markdown
+                },
+                author {
+                    name
+                }
+                coverImage {
+                    url,
+                    id
+                }
+            }
+        }
+    `)
+    return posts
+}
+
 
 export const getSections = async () => {
     const { __type: { enumValues: sections } } = await graphcms.request(`

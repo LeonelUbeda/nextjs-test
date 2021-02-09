@@ -14,7 +14,7 @@ const SliderContainer = styled.div`
 const SideContainer = styled.div`
 
 `
-const MultiPosts = () => {
+const MultiPosts = ({posts = []}) => {
     return (
         <>
             <Container className="py-10 container mx-auto grid md:grid-cols-8 gap-2 px-2 max-w-6xl">
@@ -27,8 +27,6 @@ const MultiPosts = () => {
                         <h1 className="font-semibold md:text-2xl">Como crear un proyecto de Django y React en 5 sencillos pasos y con poco conocimiento</h1>
                         <span className="font-light mt-2 block">Tutorial para noobies</span>
                     </div>
-                    
-
                 </SliderContainer>
                 <SideContainer className="grid gap-2 sm:grid-cols-2 md:h-400px md:grid-cols-1 md:grid-rows-2 md:col-span-3 lg:h-500px">
                     <div className="relative h-250px md:h-auto">
