@@ -3,6 +3,10 @@ import { getSections } from '../../api/api'
 
 const sections = [
     {
+        name: 'Inicio',
+        url: '/',
+    },
+    {
         name: 'Noticias',
         url: '/section/Noticias',
     },
