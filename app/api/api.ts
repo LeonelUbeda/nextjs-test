@@ -1,43 +1,38 @@
-import {getBaseQuery} from './config'
-// import Post from '../interfaces/Post'
+import { graphcms } from './config'
 
-export const getPosts = async () => {
-    const response = await fetch(`${await getBaseQuery()}&q=[[at(document.type, "post")]]`)
-    const { results } = await response.json()
 
-    return results.map( element => ({ 
-        title: element.data.name,
-        uid: element.uid,
-        img: element.data.cover.url
-    }))
 
-}
-
-export const getPost = async (uid) => {
-    const response = await fetch(`${await getBaseQuery()}&q=[[at(my.anime.uid, "${uid}")]]`)
-    const { results } = await response.json()
-
-    if (results.length > 0){
-        let anime = results[0]
-        return { 
-            title: anime.data.name, 
-            uid: anime.uid,
-            img: anime.data.cover.url
+export const getSections = async () => {
+    const { __type: { enumValues: sections } } = await graphcms.request(`
+        {
+            __type(name: "Section") {
+                enumValues {
+                    name
+                }
+            }
         }
-    }else{
-        return null
-    }
+    `)
+    return sections
 }
 
+export const getPostsBySection = async (section) => {
+    const {posts} = await graphcms.request(`
+        {
+            posts(where: {section: ${section}}){
+                title,
+                coverImage {
+                    url
+                },
+                author {
+                    name
+                }
+            }
+        }
+    `)
+    
+    return posts
+} 
 
-export const getCategories = async () => {
-    const response = await fetch(`${await getBaseQuery()}&q=[[at(document.type, "category")]]`)
-    const { results } = await response.json()
 
-    return results.map( element => ({ 
-        id: element.id,
-        name: element.data.name,
-        uid: element.uid,
-    }))
 
-}
+

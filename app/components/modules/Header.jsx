@@ -1,30 +1,26 @@
 import Link from "next/link"
-import styled from 'styled-components'
+import { getSections } from '../../api/api'
 
-const menu = [
+const sections = [
     {
-        name: 'Juegos',
-        link: '/juegos'
+        name: 'Noticias',
+        url: '/section/Noticias',
     },
     {
         name: 'Programacion',
-        link: '/programacion'
-    },
-    {
-        name: 'Noticias',
-        link: '/noticias'
+        url: '/section/Programacion',
     }
 ]
 
 
-const Header = ({categories = []}) => {
+const Header = ({}) => {
     return (
         <div className="text-white px-2" style={{backgroundColor: '#009DDC'}}>
             <div className="h-20 container mx-auto max-w-6xl flex items-center">
                 <ul className="flex">
-                    {menu.map(e => (    
+                    {sections.map(e => (    
                         <li className="mr-2" key={e.name}>
-                            <Link href={e.link}>
+                            <Link href={e.url}>
                                 <a>
                                     <h6>{e.name}</h6>
                                 </a>
@@ -48,6 +44,7 @@ const Header = ({categories = []}) => {
         </div>
     )
 }
+
 
 
 export default Header
