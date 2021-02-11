@@ -2,6 +2,7 @@ import MainLayout from '../layout/MainLayout'
 import MultiPosts from '../modules/MultiPosts'
 import PostHorizontal from '../elements/PostHorizontal'
 import Image from 'next/image'
+
 const Home = ({posts}) => {
     return (
         <MainLayout>

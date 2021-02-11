@@ -21,6 +21,13 @@ export const getPostBySlug = async (slug) => {
             post(where: {slug: "${slug}"}){
                 title,
                 slug,
+                excerpt,
+                author{
+                    name,
+                    picture {
+                        url
+                    }
+                }
                 content{
                     markdown
                 },
