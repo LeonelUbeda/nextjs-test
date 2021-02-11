@@ -1,6 +1,22 @@
 import Image from 'next/image'
 import MainLayout from '../layout/MainLayout'
 import ReactMarkDown from 'react-markdown'
+import React from "react";
+
+
+const paragraphRenderer = ({ children }) => {
+    const hasImage = !!children.find(
+        (child) => typeof child === 'object' && child.key && !!child.key.match(/image/g)
+    )
+    return hasImage ? children : <p>{children}</p>
+}
+const imageRenderer = (e) => {
+
+    return (
+        <Image src={e.src} width="auto" height="auto" className="object-cover"/>
+    )
+}
+
 
 const PostDetail = ({post = {}}) => {
     return (
@@ -20,12 +36,9 @@ const PostDetail = ({post = {}}) => {
 
                     <div className="my-8 md:my-10">
                         <Image src={post.coverImage?.url || ""} width="1920" height="1080" className="rounded-xl" layout="responsive"/>
-
                     </div>
-                    <div className="mt-8 md:mt-12 prose sm:prose lg:prose-lg xl:prose-2xl space-y-3 sm:space-y-4 lg:space-y-8 xl:space-y-10">
-                        <ReactMarkDown>
-                            {post.content.markdown}
-                        </ReactMarkDown>
+                    <div className="mt-8 md:mt-12 prose prose-red sm:prose lg:prose-lg xl:prose-2xl space-y-3 sm:space-y-4 lg:space-y-8 xl:space-y-10">
+                        <ReactMarkDown unwrapDisallowed={false} renderers={{image: imageRenderer, paragraph: paragraphRenderer}} source={post.content.markdown}/>
                     </div>
                 </div>
             </div>
