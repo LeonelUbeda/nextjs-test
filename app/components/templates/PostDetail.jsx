@@ -17,7 +17,6 @@ const imageRenderer = (e) => {
     )
 }
 
-
 const PostDetail = ({post = {}}) => {
     return (
         <MainLayout>
