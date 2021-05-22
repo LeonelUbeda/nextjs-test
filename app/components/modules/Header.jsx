@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getSections } from "../../api/api";
-
+import Container from "../layout/Container";
+import { AiOutlineMenu } from "react-icons/ai";
 const sections = [
   {
     name: "Inicio",
@@ -19,21 +20,37 @@ const sections = [
 const Header = ({}) => {
   return (
     <div
-      className='text-white px-2 md:px-5'
-      style={{ backgroundColor: "#009DDC" }}
+      className='text-gray-700 px-2 md:px-5 border-b border-gray-200'
+      // style={{ backgroundColor: "#009DDC" }}
     >
-      <div className='h-20 container mx-auto max-w-6xl flex items-center'>
-        <ul className='flex'>
-          {sections.map((e) => (
-            <li className='mr-3 font-bold' key={e.name}>
-              <Link href={e.url}>
-                <a>
-                  <h6>{e.name}</h6>
-                </a>
-              </Link>
-            </li>
-          ))}
-          {/* {categories.map(category => {
+      <Container>
+        <div className='h-20 flex items-center'>
+          <Link href='/'>
+            <a>
+              <img src='/images/logo_transparent.png' className='w-10 mr-6' />
+            </a>
+          </Link>
+          <div className='ml-auto md:hidden'>
+            <AiOutlineMenu className='w-6 h-6' />
+          </div>
+          <ul className='hidden md:flex'>
+            {sections.map((e) => (
+              <li className='mr-6 font-bold' key={e.name}>
+                <Link href={e.url}>
+                  <a>
+                    <h6>{e.name}</h6>
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Container>
+    </div>
+  );
+};
+
+/* {categories.map(category => {
                         return (
                             <li className="mr-2">
                                 <Link href="/">
@@ -43,11 +60,6 @@ const Header = ({}) => {
                                 </Link>
                             </li>
                         )
-                    })} */}
-        </ul>
-      </div>
-    </div>
-  );
-};
+                    })} */
 
 export default Header;

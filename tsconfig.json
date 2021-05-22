@@ -12,8 +12,21 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": "app",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@images/*": ["images/*"],
+      "@src/*": ["*"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.tsx"],
+
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/index.tsx",
+    "app/components/modules/Footer.jsx"
+  ],
   "exclude": ["node_modules"]
 }

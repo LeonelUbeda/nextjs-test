@@ -1,12 +1,16 @@
+import Container from "@components/layout/Container";
 import { getAuthors, getAuthorBySlug } from "../../app/api/api";
 import MainLayout from "../../app/components/layout/MainLayout";
+
 function AnimeDetail({ author }) {
   return (
     <MainLayout>
-      <>
-        <h2>Hey</h2>
-        <h1>{author.name}</h1>
-      </>
+      <Container>
+        <>
+          <h2>Hey</h2>
+          <h1>{author.name}</h1>
+        </>
+      </Container>
     </MainLayout>
   );
 }
