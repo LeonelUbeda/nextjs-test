@@ -24,8 +24,8 @@ const PostDetail = ({ post = {} }) => {
   return (
     <MainLayout>
       <Container>
-        <div className='mx-auto max-w-4xl mt-8 md:my-12'>
-          <h1 className='mb-2 text-2xl md:my-5 sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-800 text-center'>
+        <div className='mx-auto max-w-4xl'>
+          <h1 className='mb-2 text-2xl md:mb-5 sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-800 text-center'>
             {post.title}
           </h1>
         </div>

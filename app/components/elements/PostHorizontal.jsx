@@ -32,13 +32,19 @@ const PostHorizontal = ({ title, coverImage, author, slug }) => {
           </Link>
           <div className='text-gray-500 mt-1'>
             <span> por: </span>
-            <Link href={`/authors/${author?.slug}`}>
+            {author?.slug ? (
+              <Link href={`/authors/${author?.slug}`}>
+                <a>
+                  <span className='text-blue-400'>{author?.name}</span>
+                </a>
+              </Link>
+            ) : (
               <a>
                 <span className='text-blue-400'>
                   {author?.name || "Anonimo"}
                 </span>
               </a>
-            </Link>
+            )}
           </div>
         </div>
       </div>

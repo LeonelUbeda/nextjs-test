@@ -24,10 +24,10 @@ const Header = ({}) => {
       // style={{ backgroundColor: "#009DDC" }}
     >
       <Container>
-        <div className='h-20 flex items-center'>
+        <div className='h-12 md:h-20 flex items-center'>
           <Link href='/'>
-            <a>
-              <img src='/images/logo_transparent.png' className='w-10 mr-6' />
+            <a className=' mr-6'>
+              <img src='/images/logo_transparent.png' className='w-8 md:w-10' />
             </a>
           </Link>
           <div className='ml-auto md:hidden'>
