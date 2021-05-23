@@ -7,7 +7,8 @@ function AnimeDetail({ post = {} }) {
       <Head>
         <title>{post.title} | Blog de prueba</title>
         <meta property='og:title' content={`${post.title} | Blog de prueba`} />
-        <meta property='og:description' content={post.coverImage?.url} />
+        <meta property='og:description' content={post.excerpt} />
+        <meta property='og:image' content={post.coverImage?.url} />
       </Head>
       <PostDetail post={post} />
     </>
