@@ -1,11 +1,18 @@
 import styles from "../styles/Home.module.css";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { getPosts } from "../app/api/api";
 import Home from "../app/components/templates/Home";
-import Header from "../app/components/modules/Header";
+import Head from "next/head";
 
 export default function HomePage({ posts }) {
-  return <Home posts={posts} />;
+  return (
+    <>
+      <Head>
+        <title>Blog de práctica</title>
+      </Head>
+      <Home posts={posts} />
+    </>
+  );
 }
 
 export async function getStaticProps() {
